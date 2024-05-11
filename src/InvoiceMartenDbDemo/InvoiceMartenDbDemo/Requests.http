@@ -1,0 +1,57 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+### Save Client
+POST https://localhost:63809/client
+Content-Type: application/json
+accept: */*
+
+{
+  "clientId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "firstName": "JOHN",
+  "lastName": "DOE JR",
+  "dateOfBirth": "1956-03-12",
+  "accountNumber": "B101"
+}
+
+### Get Clients
+GET https://localhost:63809/client
+
+### Get unbilled invoices
+GET https://localhost:63809/invoices/unbilled
+
+### Get billed invoices
+GET https://localhost:63809/invoices/billed
+
+### Create invoice
+POST https://localhost:63809/invoices
+Content-Type: application/json
+accept: */*
+
+{
+  "invoiceId": "06a5012c-2940-445f-b05a-ec14a08f4eb4",
+  "clientId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "balance": 500.50
+}
+
+### Submit invoice
+POST https://localhost:63809/invoice/submit
+Content-Type: application/json
+accept: */*
+
+{
+  "invoiceId": "06a5012c-2940-445f-b05a-ec14a08f4eb4",
+  "postedDate": "2024-05-03T01:11:34.864Z"
+}
+
+### Make Payment
+POST https://localhost:63809/payment
+Content-Type: application/json
+accept: */*
+
+{
+  "invoiceId": "06a5012c-2940-445f-b05a-ec14a08f4eb4",
+  "amount": 100.50
+}
+
+### Get Client Ledgers
+GET https://localhost:63809/client/ledger
